@@ -53,4 +53,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             textView = itemView.findViewById(R.id.textView);
         }
     }
+
+    public void emptyCustomAdapterList() {
+        list.clear();
+        notifyDataSetChanged();
+    }
+
 }

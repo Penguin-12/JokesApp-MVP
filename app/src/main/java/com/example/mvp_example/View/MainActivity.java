@@ -30,12 +30,12 @@ public class MainActivity extends AppCompatActivity implements MainContract.MyVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        setTitle("Chuck Norris Jokes");
         recyclerView = findViewById(R.id.recylerView);
         button = findViewById(R.id.button);
         progressBar = findViewById(R.id.progressBar);
         presenter = new PresenterImpl(this, this);
-
-
         customAdapter = new CustomAdapter(this, list);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.MyVi
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                customAdapter.emptyCustomAdapterList();
                 button.setVisibility(View.INVISIBLE);
                 presenter.onClick();
                 showProgressBar();
